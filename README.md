@@ -16,33 +16,27 @@ O projeto pode ser inicializado pelo container no arquivo comprimido **lojatech-
 
 ### Unix
 
-Após clonar o repositório, rodar o script .sh:
+Após clonar o repositório, navegar até a pasta container e unir os splits:
 
 ```bash
-./run-lojatech.sh
+cat lojatech-part-* > lojatech-image.tar
+ls
 ```
-
-O script irá extrair o arquivo comprimido **lojatech-image.tar.gz** e inicializar o projeto.
-Caso o script falhe, é possível inicializar manualmente com os comandos:
+Verificar se o arquico lojatech-image.tar foi criado. Em caso positivo, continuar para a criação do container:
 
 ```bash
-gunzip lojatech-image.tar.gz
 podman load -i lojatech-image.tar
 podman run -d --name lojatech-app -p 8080:3000 lojatech:latest
 ```
-Para encerrar a execução do container, execute o script de encerramento:
 
-```bash
-./stop-lojatech.sh
-```
 ### Windows
 
 Navegar pelo terminal bash para a pasta do projeto, depois fazer a descompressão da imagem:
 
-```bash
-gunzip lojatech-image.tar.gz
-podman load -i lojatech-image.tar
-podman run -d --name lojatech-app -p 8080:3000 lojatech:latest
+```cmd
+copy /b lojatech-part-* lojatech-image.tar
+docker load -i lojatech-image.tar
+docker run -d --name lojatech-app -p 8080:3000 lojatech:latest
 ```
 
 
