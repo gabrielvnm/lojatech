@@ -26,7 +26,7 @@ ls
 
 ```bash
 podman load -i lojatech-image.tar
-podman run -d --name lojatech-app -p 8080:3000 localhost/lojatech:latest
+podman run -d --name lojatech-app -p 8080:3000 lojatech:latest
 ```
 
 O backend será inicializado na porta 3000, e o frontend na porta 8080. O projeto pode ser acessado através de http://localhost:8080
